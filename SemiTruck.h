@@ -1,7 +1,7 @@
 #pragma once
 
-struct SemiTruck : public vehicle
+struct SemiTruck : public Vehicle
 {
     SemiTruck(const std::string& n);
-}
+};
 
