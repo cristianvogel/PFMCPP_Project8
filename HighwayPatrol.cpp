@@ -2,7 +2,9 @@
 
 
 #include <iostream>
-#include <typeinfo>
+#include "Car.h"
+#include "Motorcycle.h"
+#include "SemiTruck.h"
 
 HighwayPatrol::HighwayPatrol() : Vehicle("HighwayPatrol")
 {
@@ -30,10 +32,21 @@ void HighwayPatrol::pullOver( Vehicle* v, bool willArrest, Highway* h )
     if( willArrest )
     {
         //print the vehicle type in this std::cout between "THE [" and "] PULL". 
-        std::cout << name << ": YOU IN THE [ " << typeid( *(v) ).name() << " ] PULL OVER AND SHOW YOUR HANDS" << std::endl;
+
+
+        std::cout << name << ": YOU IN THE [ " << getVehicleType(v) << " ] PULL OVER AND SHOW YOUR HANDS" << std::endl;
         std::cout << "EVERYONE ELSE, SLOW DOWN!! \n\n\n";
         h->removeVehicle(v);
     }
+}
+
+std::string HighwayPatrol::getVehicleType( Vehicle* v) 
+{
+    std::string result = "vehicle";
+    if( auto* c = dynamic_cast<Car*>(v) ) { result = "Car"; }
+    if( auto* c = dynamic_cast<SemiTruck*>(v) ) { result = "Truck"; }
+    if( auto* c = dynamic_cast<Motorcycle*>(v) ) { result = "Motorcycle"; }
+    return result;
 }
 
 void HighwayPatrol::tryToEvade() 
