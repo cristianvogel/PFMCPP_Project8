@@ -12,6 +12,20 @@ void Car::closeWindows()
 
 void Car::tryToEvade()
 {
-    setSpeed(0);
-    std::cout << name << ": hello officer, what seems to be the problem?" << std::endl;
+    setSpeed(120);
+    std::cout << name << ": i got a smokey on my tail!" << std::endl;
+}
+
+void Car::setSpeed(int s)
+{
+     if( s < 90 )
+    {
+        //ignore the request to lower the speed
+        // middle finger text emoji
+        std::cout<< name << "  t(*_*) " << std::endl;
+    }
+    else
+    {
+        speed = s;
+    }
 }

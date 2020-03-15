@@ -1,5 +1,8 @@
 #include "HighwayPatrol.h"
+
+
 #include <iostream>
+#include <typeinfo>
 
 HighwayPatrol::HighwayPatrol() : Vehicle("HighwayPatrol")
 {
@@ -27,8 +30,18 @@ void HighwayPatrol::pullOver( Vehicle* v, bool willArrest, Highway* h )
     if( willArrest )
     {
         //print the vehicle type in this std::cout between "THE [" and "] PULL". 
-        std::cout << name << ": YOU IN THE [ " << " ] PULL OVER AND SHOW YOUR HANDS" << std::endl;
+        std::cout << name << ": YOU IN THE [ " << typeid( *(v) ).name() << " ] PULL OVER AND SHOW YOUR HANDS" << std::endl;
         std::cout << "EVERYONE ELSE, SLOW DOWN!! \n\n\n";
         h->removeVehicle(v);
     }
 }
+
+void HighwayPatrol::tryToEvade() 
+{
+     //never tries to evade 
+};
+
+void HighwayPatrol::setSpeed( int s ) 
+{
+     speed = s;
+};

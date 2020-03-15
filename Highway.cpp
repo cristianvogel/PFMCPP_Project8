@@ -1,4 +1,9 @@
+#include "Vehicle.h"
 #include "Highway.h"
+#include "Car.h"
+#include "Motorcycle.h"
+#include "SemiTruck.h"
+
 
 #include <cassert>
 
@@ -13,22 +18,44 @@ void Highway::changeSpeed(int newSpeed)
 
 void Highway::addVehicleInternal(Vehicle* v)
 {
-    assert(false);
-
     /*
     depending on the derived type, call the member function that doesn't evade the cops. 
     */
+    if ( Car* c = dynamic_cast<Car*>(v) ) 
+    {
+        c->closeWindows();
+    } 
+    else if ( Motorcycle* mc = dynamic_cast<Motorcycle*>(v) )
+    {
+        mc->lanesplitAndRace(100);
+    }
+    else if ( SemiTruck* t = dynamic_cast<SemiTruck*>(v) )
+    {
+        t->honk();
+    }
+
 }
 
 void Highway::removeVehicleInternal(Vehicle* v)
 {
-    assert(false);
-
     /*
     depending on the derived type, call the member function that tries to evade the cops. 
 
     trucks pull over, but cars and bikes try to evade!!
     */
+    if ( Car* c = dynamic_cast<Car*>(v) ) 
+    {
+        c->tryToEvade();
+    } 
+    else if ( SemiTruck* t = dynamic_cast<SemiTruck*>(v) )
+    {
+        t->setSpeed(0);
+        t->tryToEvade();
+    }
+    else if ( Motorcycle* mc = dynamic_cast<Motorcycle*>(v) )
+    { 
+        mc->tryToEvade();
+    }
 }
 
 void Highway::addVehicle(Vehicle* v)
