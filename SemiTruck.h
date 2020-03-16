@@ -4,12 +4,12 @@
 
 struct SemiTruck : public Vehicle
 {
-    SemiTruck(const std::string& n);
+    SemiTruck(const std::string& s);
 
     void honk();
-    
-    void tryToEvade() override;
+    void pullOver();
 
-    void setSpeed(int s) override;
+    void tryToEvade() override;
+    void setSpeed( int ) override;
 };
 

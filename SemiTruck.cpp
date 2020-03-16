@@ -3,18 +3,16 @@
 
 SemiTruck::SemiTruck(const std::string& n) : Vehicle(n) {}
 
+void SemiTruck::setSpeed(int) { }
+void SemiTruck::tryToEvade() { }
+
 void SemiTruck::honk()
 {
     std::cout << name << " goes HONK! " << std::endl;
 }
 
-void SemiTruck::tryToEvade()
+void SemiTruck::pullOver()
 {
     setSpeed(0);
-    std::cout << name << ": hello officer, maybe we can settle this right here in Fargo? ( waves $100 at officer )" << std::endl;
-}
-
-void SemiTruck::setSpeed(int s)
-{
-    Vehicle::setSpeed(s);
+    std::cout << name << ": I'm pulling over now" << std::endl;
 }

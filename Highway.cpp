@@ -33,7 +33,6 @@ void Highway::addVehicleInternal(Vehicle* v)
     {
         t->honk();
     }
-
 }
 
 void Highway::removeVehicleInternal(Vehicle* v)
@@ -50,7 +49,7 @@ void Highway::removeVehicleInternal(Vehicle* v)
     else if ( SemiTruck* t = dynamic_cast<SemiTruck*>(v) )
     {
         t->setSpeed(0);
-        t->tryToEvade();
+        t->pullOver();
     }
     else if ( Motorcycle* mc = dynamic_cast<Motorcycle*>(v) )
     { 
