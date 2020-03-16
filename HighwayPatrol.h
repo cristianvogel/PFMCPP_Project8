@@ -10,6 +10,8 @@ struct HighwayPatrol : Vehicle
     void pullOver( Vehicle* v, bool willArrest, Highway* h );
     std::string getVehicleType( Vehicle* v);
 
-    void setSpeed (int) override;
-    void tryToEvade() override;
+    virtual ~HighwayPatrol();
+    
+    HighwayPatrol(const HighwayPatrol&);
+    HighwayPatrol& operator=(const HighwayPatrol&);
 };

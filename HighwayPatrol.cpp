@@ -1,6 +1,5 @@
 #include "HighwayPatrol.h"
 
-
 #include <iostream>
 #include "Car.h"
 #include "Motorcycle.h"
@@ -8,8 +7,9 @@
 
 HighwayPatrol::HighwayPatrol() : Vehicle("HighwayPatrol") { }
 
-void HighwayPatrol::setSpeed(int) { }
-void HighwayPatrol::tryToEvade() { }
+HighwayPatrol::~HighwayPatrol() = default;
+HighwayPatrol::HighwayPatrol(const HighwayPatrol&) = default;
+HighwayPatrol& HighwayPatrol::operator=(const HighwayPatrol&) = default;
 
 void HighwayPatrol::scanHighway(Highway* h)
 {
@@ -49,5 +49,3 @@ std::string HighwayPatrol::getVehicleType( Vehicle* v)
     if( auto* c = dynamic_cast<Motorcycle*>(v) ) { result = "Motorcycle"; }
     return result;
 }
-
-
