@@ -1,10 +1,11 @@
 #include <iostream>
 #include "SemiTruck.h"
 
-SemiTruck::SemiTruck(const std::string& n) : Vehicle(n) {}
+SemiTruck::SemiTruck(const std::string& n) : Vehicle(n) { }
 
-void SemiTruck::setSpeed(int) { }
-void SemiTruck::tryToEvade() { }
+SemiTruck::~SemiTruck() = default;
+SemiTruck::SemiTruck(const SemiTruck&) = default;
+SemiTruck& SemiTruck::operator=(const SemiTruck&) = default;
 
 void SemiTruck::honk()
 {
