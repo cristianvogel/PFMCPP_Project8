@@ -14,4 +14,3 @@ struct SemiTruck : Vehicle
     SemiTruck(const SemiTruck&);
     SemiTruck& operator=(const SemiTruck&);
 };
-
