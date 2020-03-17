@@ -13,5 +13,6 @@ void Car::closeWindows()
 void Car::tryToEvade()
 {
     setSpeed(0);
-    std::cout << name << ": hello officer, what seems to be the problem?" << std::endl;
+    std::cout << name << ":  hello officer, maybe we can settle this right here in Fargo? ( waves $100 at officer )" << std::endl;
 }
+
